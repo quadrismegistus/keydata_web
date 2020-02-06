@@ -4,11 +4,11 @@ This page is for working group "Keydata Project" at Cambridge University.
 
 ## Meeting 1
 
-See [here](https://www.dropbox.com/s/c8jmgddu3ekktj1/KeydataIntroMeeting.pptx?dl=0) for a copy of the powerpoint shown in the first meeting.
+See [here](https://www.dropbox.com/s/c8jmgddu3ekktj1/KeydataIntroMeeting.pptx?dl=1) for a copy of the powerpoint shown in the first meeting.
 
 ## Meeting 2
 
-See [here](https://www.dropbox.com/s/pmm5bysdddvmkvf/keydata-meeting-2.pptx?dl=0) for a copy of the powerpoint shown in the second meeting.
+See [here](https://www.dropbox.com/s/pmm5bysdddvmkvf/keydata-meeting-2.pptx?dl=1) for a copy of the powerpoint shown in the second meeting.
 
 Network graphs for experiment on using semantic vectors to find underlying semantic topography of a text.
 
