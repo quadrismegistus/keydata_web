@@ -58,4 +58,4 @@ All graphs built so far on the 1990s Google Books word2vec model. The number of 
 ### Etc
 
 * [Blackstones](%assets_url%/network_data/etc/graph_blackstone_G2.html)
-	* [Full text]("%assets_url%/network_data/etc/Blackstone.Laws_of_England.txt)
+	* [Full text](%assets_url%/network_data/etc/Blackstone.Laws_of_England.txt)
