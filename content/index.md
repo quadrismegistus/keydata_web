@@ -53,3 +53,9 @@ All graphs built so far on the 1990s Google Books word2vec model. The number of 
 | Tory manifestos (2001-2017) [[G1](%assets_url%/network_data/top100_historical/graph_tory_manifestos_C21_G1.html)] [[G2](%assets_url%/network_data/top100_historical/graph_tory_manifestos_C21_G2.html)] | Frequency |
 | Tory manifestos (1964-1997) [[G1](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C20_G1.html)] [[G2](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C20_G2.html)] | Betweenness Centrality |
 | Tory manifestos (2001-2017) [[G1](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C21_G1.html)] [[G2](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C21_G2.html)] | Betweenness Centrality |
+
+
+### Etc
+
+* [Blackstones](%assets_url%/network_data/etc/graph_blackstone_G2.html)
+	* [Full text](%assets_url%/network_data/etc/Blackstone.Laws of England.txt)

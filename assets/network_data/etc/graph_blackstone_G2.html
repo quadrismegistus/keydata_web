@@ -1,0 +1,121 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 95%;
+            height: 100%;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#7FDBFF", "count": 2843, "id": "Law", "in_net2": true, "label": "Law", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 1508, "id": "Estate", "in_net2": false, "label": "Estate", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 1239, "id": "King", "in_net2": false, "label": "King", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 1229, "id": "Time", "in_net2": true, "label": "Time", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 1172, "id": "Statute", "in_net2": false, "label": "Statute", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 1160, "id": "Right", "in_net2": true, "label": "Right", "node_type": "noun", "shape": "dot", "size": 8.855562426990998}, {"color": "#3D9970", "count": 1108, "id": "Case", "in_net2": false, "label": "Case", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 960, "id": "Person", "in_net2": false, "label": "Person", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 895, "id": "Property", "in_net2": false, "label": "Property", "node_type": "noun", "shape": "dot", "size": 7.663073887563683}, {"color": "#3D9970", "count": 809, "id": "Man", "in_net2": false, "label": "Man", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 799, "id": "Act", "in_net2": false, "label": "Act", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 738, "id": "Lord", "in_net2": false, "label": "Lord", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 724, "id": "Power", "in_net2": true, "label": "Power", "node_type": "noun", "shape": "dot", "size": 3.124441695870267}, {"color": "#3D9970", "count": 693, "id": "Parliament", "in_net2": false, "label": "Parliament", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 690, "id": "Land", "in_net2": true, "label": "Land", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 638, "id": "Life", "in_net2": true, "label": "Life", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 631, "id": "Tenant", "in_net2": false, "label": "Tenant", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 607, "id": "Possession", "in_net2": false, "label": "Possession", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 601, "id": "Part", "in_net2": true, "label": "Part", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 588, "id": "Court", "in_net2": false, "label": "Court", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 532, "id": "Interest", "in_net2": true, "label": "Interest", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 516, "id": "Use", "in_net2": true, "label": "Use", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 497, "id": "Crown", "in_net2": false, "label": "Crown", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 484, "id": "Rule", "in_net2": false, "label": "Rule", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 481, "id": "Wife", "in_net2": false, "label": "Wife", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 478, "id": "Nature", "in_net2": false, "label": "Nature", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 466, "id": "Year", "in_net2": true, "label": "Year", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 455, "id": "Order", "in_net2": true, "label": "Order", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 450, "id": "Death", "in_net2": false, "label": "Death", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 443, "id": "Husband", "in_net2": false, "label": "Husband", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 438, "id": "Reason", "in_net2": false, "label": "Reason", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 430, "id": "Action", "in_net2": true, "label": "Action", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 422, "id": "Title", "in_net2": false, "label": "Title", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 421, "id": "House", "in_net2": false, "label": "House", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 408, "id": "Heir", "in_net2": false, "label": "Heir", "node_type": "noun", "shape": "dot", "size": 5.766001446273555}, {"color": "#3D9970", "count": 398, "id": "Father", "in_net2": false, "label": "Father", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 373, "id": "Authority", "in_net2": false, "label": "Authority", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 373, "id": "Subject", "in_net2": false, "label": "Subject", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 372, "id": "Deed", "in_net2": false, "label": "Deed", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 370, "id": "Son", "in_net2": false, "label": "Son", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 363, "id": "Fee", "in_net2": false, "label": "Fee", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 348, "id": "Inheritance", "in_net2": false, "label": "Inheritance", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 339, "id": "Money", "in_net2": true, "label": "Money", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 339, "id": "Remainder", "in_net2": false, "label": "Remainder", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 338, "id": "Day", "in_net2": false, "label": "Day", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 334, "id": "State", "in_net2": true, "label": "State", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 333, "id": "Issue", "in_net2": false, "label": "Issue", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 331, "id": "Custom", "in_net2": false, "label": "Custom", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 330, "id": "Grant", "in_net2": false, "label": "Grant", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 325, "id": "Marriage", "in_net2": false, "label": "Marriage", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 312, "id": "Manner", "in_net2": false, "label": "Manner", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 311, "id": "Constitution", "in_net2": false, "label": "Constitution", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 306, "id": "Contract", "in_net2": false, "label": "Contract", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 286, "id": "Thing", "in_net2": false, "label": "Thing", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 281, "id": "Descent", "in_net2": false, "label": "Descent", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 279, "id": "Place", "in_net2": true, "label": "Place", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 277, "id": "Party", "in_net2": false, "label": "Party", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 276, "id": "Government", "in_net2": true, "label": "Government", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 276, "id": "Owner", "in_net2": false, "label": "Owner", "node_type": "noun", "shape": "dot", "size": 3.9070000294490095}, {"color": "#3D9970", "count": 274, "id": "Consent", "in_net2": false, "label": "Consent", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 273, "id": "Term", "in_net2": false, "label": "Term", "node_type": "noun", "shape": "dot", "size": 3.1986531986531985}, {"color": "#3D9970", "count": 271, "id": "Liberty", "in_net2": false, "label": "Liberty", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 271, "id": "Kingdom", "in_net2": false, "label": "Kingdom", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 270, "id": "Effect", "in_net2": false, "label": "Effect", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 269, "id": "Office", "in_net2": false, "label": "Office", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 267, "id": "Regard", "in_net2": false, "label": "Regard", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 265, "id": "Testator", "in_net2": false, "label": "Testator", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 253, "id": "Age", "in_net2": false, "label": "Age", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 250, "id": "Name", "in_net2": false, "label": "Name", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 249, "id": "Blood", "in_net2": false, "label": "Blood", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 246, "id": "Equity", "in_net2": false, "label": "Equity", "node_type": "noun", "shape": "dot", "size": 4.006390434961863}, {"color": "#7FDBFF", "count": 245, "id": "Way", "in_net2": true, "label": "Way", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 245, "id": "Body", "in_net2": false, "label": "Body", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 242, "id": "Value", "in_net2": true, "label": "Value", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 237, "id": "Course", "in_net2": false, "label": "Course", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 234, "id": "Hath", "in_net2": false, "label": "Hath", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 234, "id": "Consideration", "in_net2": false, "label": "Consideration", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 232, "id": "Tenure", "in_net2": false, "label": "Tenure", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 231, "id": "Service", "in_net2": true, "label": "Service", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 228, "id": "Condition", "in_net2": false, "label": "Condition", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 222, "id": "Justice", "in_net2": false, "label": "Justice", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 222, "id": "Child", "in_net2": true, "label": "Child", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 220, "id": "Tail", "in_net2": false, "label": "Tail", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 219, "id": "Number", "in_net2": true, "label": "Number", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 218, "id": "Writ", "in_net2": false, "label": "Writ", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 218, "id": "Country", "in_net2": true, "label": "Country", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 215, "id": "Word", "in_net2": false, "label": "Word", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 209, "id": "Master", "in_net2": false, "label": "Master", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 204, "id": "Lease", "in_net2": false, "label": "Lease", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 204, "id": "Corporation", "in_net2": false, "label": "Corporation", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 200, "id": "Respect", "in_net2": false, "label": "Respect", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 199, "id": "Ancestor", "in_net2": false, "label": "Ancestor", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 196, "id": "Degree", "in_net2": false, "label": "Degree", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 196, "id": "Church", "in_net2": false, "label": "Church", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 196, "id": "Bill", "in_net2": false, "label": "Bill", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 195, "id": "Payment", "in_net2": false, "label": "Payment", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#7FDBFF", "count": 194, "id": "Benefit", "in_net2": true, "label": "Benefit", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 193, "id": "Chapter", "in_net2": false, "label": "Chapter", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 193, "id": "Rent", "in_net2": false, "label": "Rent", "node_type": "noun", "shape": "dot", "size": 3}, {"color": "#3D9970", "count": 191, "id": "Doctrine", "in_net2": false, "label": "Doctrine", "node_type": "noun", "shape": "dot", "size": 3}]);
+        edges = new vis.DataSet([{"from": "Law", "title": "Chancery", "to": "Court"}, {"from": "Law", "title": "Legal", "to": "Equity"}, {"from": "Law", "title": "Equity", "to": "Justice"}, {"from": "Law", "title": "Laws, Statutes", "to": "Statute"}, {"from": "Law", "title": "Legal", "to": "Right"}, {"from": "Estate", "title": "Inheritance, Estates, Freehold", "to": "Property"}, {"from": "Estate", "title": "Freehold", "to": "Tenant"}, {"from": "Estate", "title": "Possessions", "to": "Possession"}, {"from": "Estate", "title": "Inheritance, Heiress", "to": "Heir"}, {"from": "Estate", "title": "Patrimony, Possessions", "to": "Inheritance"}, {"from": "Estate", "title": "Mortgage, Freehold, Annuity", "to": "Lease"}, {"from": "King", "title": "King\u0027S", "to": "Court"}, {"from": "King", "title": "Sovereign", "to": "Power"}, {"from": "Time", "title": "Hour", "to": "Day"}, {"from": "Statute", "title": "Law", "to": "Equity"}, {"from": "Statute", "title": "Law", "to": "Term"}, {"from": "Right", "title": "Rights, Prerogative", "to": "Property"}, {"from": "Right", "title": "Prerogative", "to": "Power"}, {"from": "Right", "title": "Prerogative", "to": "Authority"}, {"from": "Right", "title": "Wrong", "to": "Deed"}, {"from": "Right", "title": "Rightful", "to": "Owner"}, {"from": "Right", "title": "Rights", "to": "Liberty"}, {"from": "Right", "title": "Legal", "to": "Equity"}, {"from": "Case", "title": "Fact", "to": "Deed"}, {"from": "Person", "title": "Woman, Gentleman, Nobleman", "to": "Man"}, {"from": "Person", "title": "Woman", "to": "Husband"}, {"from": "Person", "title": "Woman", "to": "Child"}, {"from": "Property", "title": "Prerogative", "to": "Power"}, {"from": "Property", "title": "Inheritance, Estate", "to": "Heir"}, {"from": "Property", "title": "Prerogative, Power", "to": "Authority"}, {"from": "Property", "title": "Estate", "to": "Inheritance"}, {"from": "Property", "title": "Rights", "to": "Liberty"}, {"from": "Property", "title": "Freehold", "to": "Lease"}, {"from": "Property", "title": "Freehold", "to": "Tenant"}, {"from": "Man", "title": "Woman", "to": "Husband"}, {"from": "Man", "title": "Woman", "to": "Child"}, {"from": "Power", "title": "Prerogative, Dominion", "to": "Authority"}, {"from": "Power", "title": "Authority", "to": "Title"}, {"from": "Land", "title": "Realm, Island", "to": "Kingdom"}, {"from": "Life", "title": "Happiness", "to": "Interest"}, {"from": "Life", "title": "Enjoyment", "to": "Possession"}, {"from": "Tenant", "title": "Manor", "to": "Owner"}, {"from": "Tenant", "title": "Tenements, Lessee, Freehold", "to": "Lease"}, {"from": "Tenant", "title": "Manour, Manor, Soccage, Copyhold", "to": "Tenure"}, {"from": "Possession", "title": "Possessions", "to": "Inheritance"}, {"from": "Part", "title": "Residue", "to": "Remainder"}, {"from": "Court", "title": "Palace", "to": "House"}, {"from": "Interest", "title": "Advantage, Emolument", "to": "Benefit"}, {"from": "Use", "title": "Practice", "to": "Custom"}, {"from": "Use", "title": "Used", "to": "Term"}, {"from": "Rule", "title": "Maxim", "to": "Custom"}, {"from": "Wife", "title": "Mother, Daughter, Spouse", "to": "Husband"}, {"from": "Wife", "title": "Daughter", "to": "Heir"}, {"from": "Wife", "title": "Mother, Husband, Daughter", "to": "Father"}, {"from": "Wife", "title": "Daughter", "to": "Son"}, {"from": "Wife", "title": "Mother, Daughter", "to": "Child"}, {"from": "Nature", "title": "Religion", "to": "Constitution"}, {"from": "Nature", "title": "Constitution", "to": "Government"}, {"from": "Nature", "title": "Religion", "to": "Doctrine"}, {"from": "Nature", "title": "Constitution", "to": "State"}, {"from": "Year", "title": "Month, Week", "to": "Day"}, {"from": "Year", "title": "Years", "to": "Age"}, {"from": "Death", "title": "Fate", "to": "State"}, {"from": "Husband", "title": "Daughter", "to": "Heir"}, {"from": "Husband", "title": "Mother, Brother, Daughter", "to": "Father"}, {"from": "Husband", "title": "Father, Mother, Woman, Daughter", "to": "Child"}, {"from": "Husband", "title": "Father, Brother, Daughter", "to": "Son"}, {"from": "Husband", "title": "Father, Mistress", "to": "Master"}, {"from": "Action", "title": "Ation", "to": "Deed"}, {"from": "Action", "title": "Operation", "to": "Effect"}, {"from": "Title", "title": "Surname, Appellation, Character", "to": "Name"}, {"from": "Title", "title": "Name", "to": "Word"}, {"from": "Heir", "title": "Nephew, Grandson, Daughter", "to": "Father"}, {"from": "Heir", "title": "Daughter", "to": "Child"}, {"from": "Heir", "title": "Grandson", "to": "Ancestor"}, {"from": "Heir", "title": "Nephew, Daughter, Grandson", "to": "Son"}, {"from": "Heir", "title": "Heirship, Estate", "to": "Inheritance"}, {"from": "Heir", "title": "Heirs", "to": "Issue"}, {"from": "Heir", "title": "Nephew", "to": "Master"}, {"from": "Father", "title": "Mother, Daughter", "to": "Child"}, {"from": "Father", "title": "Grandson", "to": "Ancestor"}, {"from": "Father", "title": "Nephew, Grandson, Brother, Daughter", "to": "Son"}, {"from": "Father", "title": "Nephew", "to": "Master"}, {"from": "Son", "title": "Father, Daughter", "to": "Child"}, {"from": "Son", "title": "Father, Nephew", "to": "Master"}, {"from": "Son", "title": "Grandson", "to": "Ancestor"}, {"from": "Inheritance", "title": "Heir", "to": "Issue"}, {"from": "Money", "title": "Payment", "to": "Bill"}, {"from": "Money", "title": "Discounting", "to": "Payment"}, {"from": "State", "title": "Government", "to": "Constitution"}, {"from": "State", "title": "Situation", "to": "Place"}, {"from": "State", "title": "Commonwealth, Constitution", "to": "Government"}, {"from": "State", "title": "Slate, Situation", "to": "Condition"}, {"from": "Issue", "title": "Consequences", "to": "Effect"}, {"from": "Grant", "title": "Request", "to": "Consent"}, {"from": "Manner", "title": "Method", "to": "Course"}, {"from": "Manner", "title": "Methods, Method", "to": "Way"}, {"from": "Constitution", "title": "Administration, Establishment", "to": "Government"}, {"from": "Constitution", "title": "Religion", "to": "Doctrine"}, {"from": "Place", "title": "Situation, Station", "to": "Condition"}, {"from": "Owner", "title": "Landlord", "to": "Master"}, {"from": "Owner", "title": "Intrinsic", "to": "Value"}, {"from": "Owner", "title": "Manor", "to": "Tenure"}, {"from": "Term", "title": "Word", "to": "Name"}, {"from": "Term", "title": "Law", "to": "Equity"}, {"from": "Term", "title": "Phrase", "to": "Word"}, {"from": "Effect", "title": "Consequence", "to": "Consideration"}, {"from": "Office", "title": "Employment, Offices, Imployment", "to": "Service"}, {"from": "Regard", "title": "Gard, Reverence, Veneration, Affection, Deference", "to": "Respect"}, {"from": "Equity", "title": "Impartiality, Humanity", "to": "Justice"}, {"from": "Way", "title": "Method", "to": "Course"}, {"from": "Value", "title": "Estimation", "to": "Degree"}, {"from": "Tenure", "title": "Tenant", "to": "Lease"}, {"from": "Tenure", "title": "Tenant", "to": "Rent"}, {"from": "Child", "title": "Father", "to": "Master"}, {"from": "Lease", "title": "Tenant", "to": "Rent"}, {"from": "Bill", "title": "Payable", "to": "Payment"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        // default to using dot shape for nodes
+        options.nodes = {
+            shape: "dot"
+        }
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
