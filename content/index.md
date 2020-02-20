@@ -2,15 +2,11 @@
 
 This page is for working group "Keydata Project" at Cambridge University.
 
-## Meeting Notes
 
-### Meeting 1
+## Modeling usage differences
 
-See [here](https://www.dropbox.com/s/c8jmgddu3ekktj1/KeydataIntroMeeting.pptx?dl=1) for a copy of the powerpoint shown in the first meeting.
+<div class='tableauPlaceholder' id='viz1582210902632' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wo&#47;WordusagedifferencesinLabourvsTorymanifestos&#47;QualitativevsQuantitativeDistancesperwordinmanifestos&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='WordusagedifferencesinLabourvsTorymanifestos&#47;QualitativevsQuantitativeDistancesperwordinmanifestos' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wo&#47;WordusagedifferencesinLabourvsTorymanifestos&#47;QualitativevsQuantitativeDistancesperwordinmanifestos&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1582210902632');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
-### Meeting 2
-
-See [here](https://www.dropbox.com/s/pmm5bysdddvmkvf/keydata-meeting-2.pptx?dl=1) for a copy of the powerpoint shown in the second meeting.
 
 ## Network graphs (Feb 19)
 
@@ -136,6 +132,15 @@ All graphs built so far on the 1990s Google Books word2vec model. The number of 
 | Tory manifestos (1964-1997) [[G1](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C20_G1.html)] [[G2](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C20_G2.html)] | Betweenness Centrality |
 | Tory manifestos (2001-2017) [[G1](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C21_G1.html)] [[G2](%assets_url%/network_data/top100_historical_betweenness/graph_tory_manifestos_C21_G2.html)] | Betweenness Centrality |
 
+## Meeting Notes
+
+### Meeting 1
+
+See [here](https://www.dropbox.com/s/c8jmgddu3ekktj1/KeydataIntroMeeting.pptx?dl=1) for a copy of the powerpoint shown in the first meeting.
+
+### Meeting 2
+
+See [here](https://www.dropbox.com/s/pmm5bysdddvmkvf/keydata-meeting-2.pptx?dl=1) for a copy of the powerpoint shown in the second meeting.
 
 ### Etc
 
